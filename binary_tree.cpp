@@ -85,8 +85,32 @@ class BiST{
 				}
 		}
 	
+	int counter = 0;
+	void fanDisplay2(node * current)
+		{
+			
+			if(current -> right != NULL)
+			{
+				counter++;
+				fanDisplay2(current -> right);
+			}
+			for(;counter != 0;counter--)
+				{
+					cout<< "\t";
+				}
+			cout<<current->data<<endl;
+			if(current-> left != NULL)
+			{
+				counter++;
+				fanDisplay2(current -> left);
+			}
+
+			
+		}
+			
+	void fanDisplay()
+		{fanDisplay2(root);}
 	};
-	
 
 int main()
 	{
@@ -96,22 +120,18 @@ int main()
 		//	t1.insert(i);
 		//}
 		//
-		t1.display();
+		/*t1.display();
 		t1.insert(2);
 		t1.insert(26);
-		t1.display();
+		t1.display();*/
 		t1.insert(7);
 		t1.insert(4);
 		t1.insert(98);
 		t1.insert(1);
 		t1.insert(5);
 		t1.display();
-		node*n1 = t1.search(1); 
+		node*n1 = t1.search(1);
+		t1.fanDisplay(); 
 		return 0;
-	}	
-	
-	
-	
-	
-	
-	
+
+	}
